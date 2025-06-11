@@ -1,2 +1,4 @@
 opencv-python
 requests
+fastapi~=0.115.12
+uvicorn
