@@ -8,10 +8,10 @@ from fastapi.responses import StreamingResponse
 import threading
 
 class CapturadorUSB:
-    def __init__(self, intervalo=30, endpoint="http://localhost:8000/imagen"):
+    def __init__(self, intervalo=30, endpoint="http://181.16.119.228:8090/imagen"):
         self.intervalo = intervalo
         self.endpoint = endpoint
-        self.cap = cv2.VideoCapture(0)
+        self.cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
         print(f"[Init] Configurado cada {intervalo}s a {endpoint}")
 
     def capturar_y_enviar(self):
@@ -70,4 +70,4 @@ if __name__ == "__main__":
     hilo_captura.start()
 
     print("Iniciando servidor FastAPI con endpoint /video...")
-    uvicorn.run("camara_sender:app", host="0.0.0.0", port=8085, reload=False)
+    uvicorn.run("camara_sender:app", host="0.0.0.0", port=8000, reload=False)
