@@ -8,7 +8,7 @@ from fastapi.responses import StreamingResponse
 import threading
 
 class CapturadorUSB:
-    def __init__(self, intervalo=30, endpoint="http://181.16.119.228:8090/imagen"):
+    def __init__(self, intervalo=30, endpoint="http://138.197.10.213:30081/imagen"):
         self.intervalo = intervalo
         self.endpoint = endpoint
         self.cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
